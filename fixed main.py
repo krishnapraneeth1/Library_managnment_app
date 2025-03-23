@@ -1,3 +1,4 @@
+from customtkinter import CTkImage
 import tkinter
 from tkinter import *
 from tkinter import ttk
@@ -114,9 +115,9 @@ class LibraryApp(ctk.CTk):
         """Home Screen with Login and Register buttons"""
         image_path = "UI/home_screen.png"
         self.bg_image = Image.open(image_path).resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
 
         login_button = ctk.CTkButton(self, text="Login", width=130, height=40, command=self.login_screen)
         login_button.place(relx=0.40, rely=0.70, anchor="center")
@@ -131,9 +132,9 @@ class LibraryApp(ctk.CTk):
         image_path = "UI/intropage.jpg"  # Ensure you have this image in the directory
         self.bg_image = Image.open(image_path)
         self.bg_image = self.bg_image.resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
         
         # Foreground UI elements (placed directly on top of the image)
         self.heading = ctk.CTkLabel(self, text="Effortless Library Access at Your Fingertips", font=("Arial", 24, "bold"), fg_color="#FEFEF2", text_color="black")
@@ -182,9 +183,9 @@ class LibraryApp(ctk.CTk):
         image_path = "UI/Register.png"  # Ensure you have this image in the directory
         self.bg_image = Image.open(image_path)
         self.bg_image = self.bg_image.resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
 
         # Field placements
         fields = [
@@ -219,8 +220,8 @@ class LibraryApp(ctk.CTk):
         # Back Button as Image
         self.back_image = Image.open("UI/back.png")
         self.back_image = self.back_image.resize((60, 60), Image.LANCZOS)
-        self.back_photo = ImageTk.PhotoImage(self.back_image)
-        self.back_button = Button(self, image=self.back_photo, bg="#D9D9D9", bd=0, cursor="hand2", command=self.home_screen)
+        self.back_photo = CTkImage(light_image=self.back_image, size=(60, 60))
+        self.back_button = ctk.CTkButton(self, image=self.back_photo, text="", width=60, height=60, fg_color="#D9D9D9", hover_color="#D9D9D9", command=self.home_screen)
         self.back_button.place(x=1050, y=600)
 
     def toggle_password(self):
@@ -237,9 +238,9 @@ class LibraryApp(ctk.CTk):
         # Load and Display Background Image
         image_path = "UI/forgot_password.png"  # Ensure you have this image in the directory
         self.bg_image = Image.open(image_path).resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
 
         # Heading
         heading_label = ctk.CTkLabel(self, text="Forgot your Password?", font=("Arial", 30, "bold"), text_color="black", bg_color="#D9D9D9")
@@ -271,10 +272,10 @@ class LibraryApp(ctk.CTk):
 
         # Back Button to Login Screen
         back_icon = Image.open("UI/back.png").resize((60, 60))
-        self.back_photo = ImageTk.PhotoImage(back_icon)
-        back_button = ctk.CTkButton(self, image=self.back_photo, text="", width=60, height=60, fg_color="#D9D9D9",
+        self.back_photo = CTkImage(light_image=back_icon, size=(60, 60))
+        self.back_button = ctk.CTkButton(self, image=self.back_photo, text="", width=60, height=60, fg_color="#D9D9D9",
                         hover_color="#D9D9D9", command=self.login_screen)
-        back_button.place(x=420, y=600)
+        self.back_button.place(x=420, y=600)
 
 
     def verify_email(self):
@@ -443,9 +444,9 @@ class LibraryApp(ctk.CTk):
     def book_catalog_screen(self):
         image_path = "UI/catalog.png"
         self.bg_image = Image.open(image_path).resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
 
         # Fetch book data
         book_titles, self.book_data = self.fetch_book_data()
@@ -477,11 +478,12 @@ class LibraryApp(ctk.CTk):
         self.book_description_label = ctk.CTkLabel(book_info_frame, text="", wraplength=400,
                                                 font=("Arial", 16), text_color="black", fg_color="transparent")
         self.book_description_label.place(relx=0.5, rely=0.5, anchor="center")
+
         # Add Image as Button
         self.back_image = Image.open("UI/logout.png")
         self.back_image = self.back_image.resize((60, 60), Image.LANCZOS)
-        self.back_photo = ImageTk.PhotoImage(self.back_image)
-        self.back_button = Button(self, image=self.back_photo, bg="#D9D9D9", bd=0, cursor="hand2", command=self.login_screen)
+        self.back_photo = CTkImage(light_image=self.back_image, size=(60, 60))
+        self.back_button = ctk.CTkButton(self, image=self.back_photo, text="", width=60, height=60, fg_color="#D9D9D9", hover_color="#D9D9D9", command=self.login_screen)
         self.back_button.place(relx=0.28, rely=0.85, anchor="w")  # Moved to the right
 
         # add button to request book
@@ -613,9 +615,9 @@ class LibraryApp(ctk.CTk):
         image_path = "UI/profile.png"
         self.bg_image = Image.open(image_path)
         self.bg_image = self.bg_image.resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
         # Fetch user details to display on the profile screen
         user_details = f"Hello, {self.first_name} {self.last_name}!"
         user_label = ctk.CTkLabel(self, text=user_details, font=("Arial", 35, "bold"), fg_color="#D9D9D9", text_color="black")
@@ -626,21 +628,25 @@ class LibraryApp(ctk.CTk):
 
         # Fetch borrowed books for the current user
         self.borrowed_books = self.fetch_borrowed_books()
-        # Treeview to display borrowed books with smaller font and expanded horizontally
+        # # Treeview to display borrowed books with larger font and expanded horizontally
+        # Treeview Styling
         style = ttk.Style()
-        style.configure("Treeview.Heading", font=("Arial", 14, "bold"), background="#D9D9D9", foreground="black")
-        style.configure("Treeview", font=("Arial", 12), rowheight=25, background="#D9D9D9", foreground="black", fieldbackground="#D9D9D9")
-
-        self.books_tree = ttk.Treeview(self, columns=("Book ID", "Title", "Due Date"), show="headings", height=8)
+        style.configure("Treeview.Heading", font=("Arial", 15, "bold"), background="#D9D9D9", foreground="black")
+        style.configure("Treeview", font=("Arial", 13), rowheight=45, background="#D9D9D9", foreground="black", fieldbackground="#D9D9D9")
+        # Treeview Widget
+        self.books_tree = ttk.Treeview(self, columns=("Book ID", "Title", "Due Date"), show="headings")
         self.books_tree.heading("Book ID", text="Book ID")
         self.books_tree.heading("Title", text="Title")
         self.books_tree.heading("Due Date", text="Due Date")
 
+        # Set column widths and alignment according to the resolution
         self.books_tree.column("Book ID", width=100, anchor="center")
-        self.books_tree.column("Title", width=500, anchor="center")
+        self.books_tree.column("Title", width=400, anchor="center")
         self.books_tree.column("Due Date", width=150, anchor="center")
+        # Place the Treeview to fit the resolution
+        self.books_tree.place(relx=0.5, rely=0.73, anchor="center", relwidth=0.6, relheight=0.3)
 
-        self.books_tree.place(relx=0.50, rely=0.73, anchor="center")
+
 
         # Populate Treeview with borrowed books
         self.populate_borrowed_books()
@@ -652,8 +658,8 @@ class LibraryApp(ctk.CTk):
         # Back button to go back to the book catalog screen as image
         self.back_image = Image.open("UI/back.png")
         self.back_image = self.back_image.resize((70, 70), Image.LANCZOS)
-        self.back_photo = ImageTk.PhotoImage(self.back_image)
-        self.back_button = Button(self, image=self.back_photo, bg="white", bd=0, cursor="hand2", command=self.book_catalog_screen)
+        self.back_photo = CTkImage(light_image=self.back_image, size=(55, 55))
+        self.back_button = ctk.CTkButton(self, image=self.back_photo, text="", width=55, height=55, fg_color="white", hover_color="white", command=self.book_catalog_screen)
         self.back_button.place(relx=0.95, rely=0.94, anchor="e")
 
     def fetch_borrowed_books(self):
@@ -724,9 +730,9 @@ class LibraryApp(ctk.CTk):
         image_path = "UI/admin.png"  # Ensure you have this image in the directory
         self.bg_image = Image.open(image_path)
         self.bg_image = self.bg_image.resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
 
         # Admin Welcome Message
         welcome_label = ctk.CTkLabel(self, text="Welcome Library Admin", font=("Arial", 28, "bold"), text_color="black",bg_color='white')
@@ -736,7 +742,7 @@ class LibraryApp(ctk.CTk):
         def create_button(text, icon_path, x, y, command):
             """Creates a button with an icon and text."""
             icon = Image.open(icon_path).resize((30, 30))
-            icon_photo = ImageTk.PhotoImage(icon)
+            icon_photo = CTkImage(light_image=icon, size=(30, 30))
             button = ctk.CTkButton(self, text=text, image=icon_photo, compound="right", width=220, height=60,
                                 font=("Arial", 18, "bold"), corner_radius=10, fg_color="#D9D9D9",
                                 text_color="black", hover_color="#C0C0C0", command=command)
@@ -760,7 +766,7 @@ class LibraryApp(ctk.CTk):
 
         # Logout Button (Back Icon)
         logout_icon = Image.open("UI/logout.png").resize((60, 60))
-        logout_photo = ImageTk.PhotoImage(logout_icon)
+        logout_photo = CTkImage(light_image=logout_icon, size=(60, 60))
         logout_button = ctk.CTkButton(self, image=logout_photo, text="", width=60, height=60,
                                     fg_color="white", hover_color="#D9D9D9", command=self.login_screen)
         logout_button.image = logout_photo  # Keep reference
@@ -772,9 +778,9 @@ class LibraryApp(ctk.CTk):
         image_path = "UI/add_book.png"  # Ensure you have this image in the directory
         self.bg_image = Image.open(image_path)
         self.bg_image = self.bg_image.resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
 
         # Set Background Color
         self.configure(bg="#D6D3CB")
@@ -816,8 +822,8 @@ class LibraryApp(ctk.CTk):
         #add back button as image to go back to the admin dashboard
         self.back_image = Image.open("UI/back.png")
         self.back_image = self.back_image.resize((55, 55), Image.LANCZOS)
-        self.back_photo = ImageTk.PhotoImage(self.back_image)
-        self.back_button = Button(self, image=self.back_photo, bg="white", bd=0, cursor="hand2", command=self.admin_dashboard)
+        self.back_photo = CTkImage(light_image=self.back_image, size=(55, 55))
+        self.back_button = ctk.CTkButton(self, image=self.back_photo, text="", width=55, height=55, fg_color="white", hover_color="white", command=self.admin_dashboard)
         self.back_button.place(relx=0.98, rely=0.96, anchor="e")
 
 
@@ -860,13 +866,13 @@ class LibraryApp(ctk.CTk):
         # Load and Display Background Image
         image_path = "UI/reuqets.png"
         self.bg_image = Image.open(image_path).resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
 
         # Heading Label
         heading_label = ctk.CTkLabel(self, text="Book Request List", font=("Arial", 24, "bold"), text_color="black")
-        heading_label.place(relx=0.5, rely=0.15, anchor="center")
+        heading_label.place(relx=0.5, rely=0.35, anchor="center")
 
         # Buttons: Accept, Reject, Back
         accept_button = ctk.CTkButton(self, text="Accept", width=150, height=45, font=("Arial", 18, "bold"),
@@ -884,7 +890,14 @@ class LibraryApp(ctk.CTk):
         # Create Treeview Table for Book Requests
         columns = ("Transaction ID", "User", "Book Title", "Status")
         self.request_list_table = ttk.Treeview(self, columns=columns, show="headings", height=8)
-        self.request_list_table.place(relx=0.5, rely=0.59, anchor="center", width=800, height=250)
+
+        # Adjust column widths based on window resolution
+        self.request_list_table.column("Transaction ID", anchor="center", width=150)
+        self.request_list_table.column("User", anchor="center", width=250)
+        self.request_list_table.column("Book Title", anchor="center", width=400)
+        self.request_list_table.column("Status", anchor="center", width=200)
+
+        self.request_list_table.place(relx=0.5, rely=0.59, anchor="center", relwidth=0.6, relheight=0.3)
 
         # Define column headings
         for col in columns:
@@ -1009,9 +1022,9 @@ class LibraryApp(ctk.CTk):
         # Load and Display Background Image
         image_path = "UI/library_resources.png"
         self.bg_image = Image.open(image_path).resize((1200, 750))
-        self.bg_photo = ImageTk.PhotoImage(self.bg_image)
-        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, text="")
-        self.bg_label.place(relwidth=1, relheight=1)
+        self.bg_photo = CTkImage(light_image=self.bg_image, size=(1200, 750))
+        self.bg_label = ctk.CTkLabel(self, image=self.bg_photo, width=1200, height=750, text="")
+        self.bg_label.place(x=0, y=0)
 
         # Heading
         heading_label = ctk.CTkLabel(self, text="Library Resource List", font=("Arial", 24, "bold"),bg_color="white", text_color="black")
